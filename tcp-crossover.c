@@ -65,14 +65,16 @@ int main(int argc, char *argv[]){
 
 
 	// debug de opcoes de entrada
-	print_crossover(&CrossOver);
+	if(CrossOver.debug>1) print_crossover(&CrossOver);
 
 	// abrir porta para receber conexoes
 	if (build_server() == 1) exit(1);
 
 	// DEBUG
-	server_start();
-	return 0;
+	if(CrossOver.debug>2){
+		server_start();
+		return 0;
+	}
 
 	// Fazer FORK
 	xpid=fork();
