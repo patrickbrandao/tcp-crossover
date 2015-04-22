@@ -156,8 +156,6 @@ void server_start(){
 	// processar conexoes
 	do {
 		if (wait_for_clients() == 0) handle_client();
-		j++;
-		if(j>10) break;
 	} while (1);
 
 	// fechar servidor
